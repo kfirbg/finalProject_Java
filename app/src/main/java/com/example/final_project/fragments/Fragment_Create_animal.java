@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 
 import android.provider.MediaStore;
 import android.util.Log;
@@ -26,6 +27,7 @@ import com.example.final_project.MainActivity;
 import com.example.final_project.R;
 import com.example.final_project.models.dataModel;
 import com.google.android.gms.auth.api.signin.internal.Storage;
+import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
 import java.time.Instant;
@@ -39,7 +41,7 @@ public class Fragment_Create_animal extends Fragment {
     ImageView imageView;
     Button createButton;
     Button imageButton;
-
+    private boolean image_flag = false;
     private Uri uri;
 
 
@@ -50,7 +52,6 @@ public class Fragment_Create_animal extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment__create_animal, container, false);
 
         nameText = view.findViewById(R.id.editTextTextPersonName);
@@ -59,10 +60,12 @@ public class Fragment_Create_animal extends Fragment {
         createButton = view.findViewById(R.id.createButton);
         imageButton = view.findViewById(R.id.button2);
 
+
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
+                image_flag = true;
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -70,25 +73,26 @@ public class Fragment_Create_animal extends Fragment {
             }
         });
 
-
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MainActivity mainActivity = (MainActivity) getActivity();
-                mainActivity.sendData(nameText,dataText,imageView,uri);
-                Bundle bundle = new Bundle();
 
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                if(nameText.getText().toString().isEmpty()){
+                    Snackbar.make(mainActivity,v,"Please full name on animal",Snackbar.LENGTH_SHORT).show();
 
-                FragmentHome fragmentHome = new FragmentHome();
-                fragmentHome.setArguments(bundle);
-
-                fragmentTransaction.replace(R.id.fragmentContainerView, fragmentHome).commit();
+                }else if(dataText.getText().toString().isEmpty()){
+                    Snackbar.make(mainActivity,v,"Please full data on animal",Snackbar.LENGTH_SHORT).show();
+                }
+                else if(image_flag == false){
+                    Snackbar.make(mainActivity,v,"Image is empty, please choose image",Snackbar.LENGTH_SHORT).show();
+                }
+                else{
+                    mainActivity.sendData(nameText,dataText,uri);
+                    Navigation.findNavController(view).navigate(R.id.action_fragment_Create_animal_to_fragmentHome);
+                }
             }
         });
-
-
         return view;
     }
 
@@ -99,7 +103,6 @@ public class Fragment_Create_animal extends Fragment {
         if(resultCode==RESULT_OK && requestCode==100 && data != null && data.getData() != null){
             uri = data.getData();
             Picasso.with(this.getContext()).load(uri).into(imageView);
-
         }
     }
 }

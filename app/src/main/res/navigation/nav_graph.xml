@@ -30,5 +30,9 @@
         android:id="@+id/fragment_Create_animal"
         android:name="com.example.final_project.fragments.Fragment_Create_animal"
         android:label="fragment__create_animal"
-        tools:layout="@layout/fragment__create_animal" />
+        tools:layout="@layout/fragment__create_animal" >
+        <action
+            android:id="@+id/action_fragment_Create_animal_to_fragmentHome"
+            app:destination="@id/fragmentHome" />
+    </fragment>
 </navigation>

@@ -41,6 +41,7 @@ public class Fragment_animal_data extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -67,22 +68,32 @@ public class Fragment_animal_data extends Fragment {
         returnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("pos",1);
-////                Log.d("mag","POS Before: "+bundle.getInt("pos"));
-//
-//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//
-//                FragmentHome fragmentHome = new FragmentHome();
-//                fragmentHome.setArguments(bundle);
-//
-//                fragmentTransaction.replace(R.id.fragment_animal_data, fragmentHome).commit();
+                Navigation.findNavController(view).navigate(R.id.action_fragment_animal_data_to_fragmentHome);
+
             }
         });
+
+//        returnHome.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                Bundle bundle = new Bundle();
+////                bundle.putInt("pos",1);
+//////                Log.d("mag","POS Before: "+bundle.getInt("pos"));
+////
+////                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+////                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+////
+////                FragmentHome fragmentHome = new FragmentHome();
+////                fragmentHome.setArguments(bundle);
+////
+////                fragmentTransaction.replace(R.id.fragment_animal_data, fragmentHome).commit();
+//            }
+//        });
 
 
         return  view;
     }
+
+
 
 }

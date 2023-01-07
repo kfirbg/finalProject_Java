@@ -39,17 +39,23 @@
         <TextView
             android:id="@+id/textViewDataAnimalData"
             android:layout_width="match_parent"
-            android:layout_height="380dp"
+            android:layout_height="500dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/design_animal_data"
             android:padding="10dp"
             android:text="TextView"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            />
 
         <Button
             android:id="@+id/returnHome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="return home page" />
+            android:layout_width="350sp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:text="return home page"
+            android:layout_marginBottom="15dp"
+            app:cornerRadius="10dp" />
     </LinearLayout>
 
 </FrameLayout>

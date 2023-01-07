@@ -43,7 +43,6 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
     private myAdapter adapter;
     private DatabaseReference databaseref;
     private List<dataModel> dataSet;
-//    private LinearLayoutManager layoutManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,14 +53,19 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home, container, false);
 
+
+
         recyclerView = view.findViewById(R.id.myRecyclerView);
+        recyclerView.clearAnimation();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         dataSet = new ArrayList<>();
+
         databaseref = FirebaseDatabase.getInstance().getReference("animals");
         databaseref.addValueEventListener(new ValueEventListener() {
             @Override

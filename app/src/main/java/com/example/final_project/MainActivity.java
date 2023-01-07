@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public  void sendData(EditText animalName, EditText animalData, ImageView imageView, Uri uri){
+    public  void sendData(EditText animalName, EditText animalData, Uri uri){
 
         DatabaseReference myRef;
         StorageReference storageRef;
