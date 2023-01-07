@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentHome">
+
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.example.final_project.fragments.FragmentHome"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_fragmentHome_to_fragment_animal_data"
+            app:destination="@id/fragment_animal_data" />
+        <action
+            android:id="@+id/action_fragmentHome_to_fragment_Create_animal"
+            app:destination="@id/fragment_Create_animal" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_animal_data"
+        android:name="com.example.final_project.fragments.Fragment_animal_data"
+        android:label="fragment_animal_data"
+        tools:layout="@layout/fragment_animal_data" />
+    <fragment
+        android:id="@+id/fragment_Create_animal"
+        android:name="com.example.final_project.fragments.Fragment_Create_animal"
+        android:label="fragment__create_animal"
+        tools:layout="@layout/fragment__create_animal" />
+</navigation>

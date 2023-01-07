@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "384917763162",
+    "project_id": "animalfttdb",
+    "storage_bucket": "animalfttdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:384917763162:android:4c2428543375cd02d1d463",
+        "android_client_info": {
+          "package_name": "com.example.animalftt.activitys"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "384917763162-95uuv6n08k5lrh8cj92nvkekfnoh381u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZgVZRYP7DSSeO0w44i7L2LnGGDZ4epjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "384917763162-95uuv6n08k5lrh8cj92nvkekfnoh381u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:384917763162:android:f666877f4e4f5341d1d463",
+        "android_client_info": {
+          "package_name": "com.example.final_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "384917763162-95uuv6n08k5lrh8cj92nvkekfnoh381u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZgVZRYP7DSSeO0w44i7L2LnGGDZ4epjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "384917763162-95uuv6n08k5lrh8cj92nvkekfnoh381u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
