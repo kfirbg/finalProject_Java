@@ -32,7 +32,8 @@
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="153dp"
+            android:layout_weight="0.5"
             android:text="upload image" />
 
         <LinearLayout
@@ -45,8 +46,9 @@
             <ImageView
                 android:id="@+id/createImageView"
                 android:layout_width="match_parent"
-                android:layout_height="428dp"
+                android:layout_height="523dp"
                 android:layout_weight="0.5"
+
                 tools:src="@tools:sample/avatars" />
 
         </LinearLayout>

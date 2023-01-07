@@ -49,9 +49,6 @@ public class dataModel {
     public void setId(int id) {
         this.id = id;
     }
-//    public  String getName(){return name;}
-//    public  String getDataAnimal(){return dataAnimal;}
-//    public  int getImage(){return image;}
-//    public  int getId(){return id;}
+
 
 }

@@ -42,13 +42,12 @@ public class MainActivity extends AppCompatActivity {
 
     public  void sendData(EditText animalName, EditText animalData, ImageView imageView, Uri uri){
 
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef;
         StorageReference storageRef;
 
         String name = animalName.getText().toString();
         String dataOnAnimal = animalData.getText().toString();
-        String image = imageView.toString();
+//        String image = imageView.toString();
 
         storageRef = FirebaseStorage.getInstance().getReference("animals");
         myRef = FirebaseDatabase.getInstance().getReference("animals");

@@ -19,11 +19,10 @@
 
             <ImageView
                 android:id="@+id/imageViewAnimalData"
-                android:layout_margin="5dp"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                tools:src="@tools:sample/avatars"
-                android:background="@drawable/design_animal_data"/>
+                android:layout_margin="5dp"
+                tools:src="@tools:sample/avatars" />
 
             <TextView
 
@@ -40,12 +39,17 @@
         <TextView
             android:id="@+id/textViewDataAnimalData"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:textSize="20dp"
+            android:layout_height="380dp"
             android:background="@drawable/design_animal_data"
-            android:text="TextView" />
+            android:padding="10dp"
+            android:text="TextView"
+            android:textSize="20dp" />
 
+        <Button
+            android:id="@+id/returnHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="return home page" />
     </LinearLayout>
 
 </FrameLayout>

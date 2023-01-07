@@ -62,7 +62,6 @@ public class Fragment_Create_animal extends Fragment {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -71,13 +70,14 @@ public class Fragment_Create_animal extends Fragment {
             }
         });
 
+
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MainActivity mainActivity = (MainActivity) getActivity();
                 mainActivity.sendData(nameText,dataText,imageView,uri);
                 Bundle bundle = new Bundle();
-//        bundle.putInt("pos",1);
+
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 

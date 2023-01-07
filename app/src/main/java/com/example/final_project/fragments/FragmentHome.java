@@ -43,7 +43,6 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
     private myAdapter adapter;
     private DatabaseReference databaseref;
     private List<dataModel> dataSet;
-
 //    private LinearLayoutManager layoutManager;
 
     @Override
@@ -58,8 +57,6 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home, container, false);
 
-        Button createButton = view.findViewById(R.id.createButton);
-
         recyclerView = view.findViewById(R.id.myRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
@@ -73,31 +70,30 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
                     dataModel dataMod = postSnapeshot.getValue(dataModel.class);
                     dataSet.add(dataMod);
                 }
-
                 adapter = new myAdapter(recyclerView.getContext(), dataSet,FragmentHome.this);
                 recyclerView.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
 
+        Button createButton = view.findViewById(R.id.createButton);
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putInt("pos",1);
-                Log.d("mag","POS Before: "+bundle.getInt("pos"));
+//                Bundle bundle = new Bundle();
+//                bundle.putInt("pos",1);
+//
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//
+//                Fragment_Create_animal fragment_create_animal = new Fragment_Create_animal();
+//                fragment_create_animal.setArguments(bundle);
 
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                Fragment_Create_animal fragment_create_animal = new Fragment_Create_animal();
-                fragment_create_animal.setArguments(bundle);
-
-                fragmentTransaction.replace(R.id.fragmentContainerView, fragment_create_animal).commit();
+                Navigation.findNavController(view).navigate(R.id.action_fragmentHome_to_fragment_Create_animal);
+//                fragmentTransaction.replace(R.id.fragmentContainerView, fragment_create_animal).commit();
             }
         });
         return  view;
@@ -108,7 +104,7 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
 
         Bundle bundle = new Bundle();
 //        bundle.putInt("pos",pos);
-        Log.d("mag","POS Before: "+bundle.getInt("pos"));
+//        Log.d("mag","POS Before: "+bundle.getInt("pos"));
         dataModel animal =  dataSet.get(pos);
         bundle.putString("name",animal.getName());
         bundle.putString("data",animal.getDataAnimal());
