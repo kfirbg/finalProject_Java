@@ -3,8 +3,8 @@ package com.example.final_project.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +20,8 @@ public class Fragment_animal_data extends Fragment {
     TextView textViewDataAnimalData;
     TextView textViewNameAnimalData;
     ImageView imageViewAnimalData;
-    Button returnHome;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -35,7 +36,8 @@ public class Fragment_animal_data extends Fragment {
         textViewNameAnimalData = view.findViewById(R.id.textViewNameAnimalData);
         textViewDataAnimalData = view.findViewById(R.id.textViewDataAnimalData);
         imageViewAnimalData = view.findViewById(R.id.imageViewAnimalData);
-        returnHome = view.findViewById(R.id.returnHome);
+
+        textViewDataAnimalData.setMovementMethod(new ScrollingMovementMethod());
 
         Bundle bundle = getArguments();
 
@@ -46,14 +48,6 @@ public class Fragment_animal_data extends Fragment {
         textViewNameAnimalData.setText(name);
         textViewDataAnimalData.setText(data);
         Picasso.with(getContext()).load(image).into(imageViewAnimalData);
-
-        returnHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.action_fragment_animal_data_to_fragmentHome);
-            }
-        });
-
 
         return  view;
     }

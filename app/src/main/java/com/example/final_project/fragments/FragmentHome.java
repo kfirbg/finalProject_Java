@@ -98,13 +98,10 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
         String nameImageAnimal  = animal.getImage().replace("/animals/", "");
         bundle.putString("image",mHttps + nameImageAnimal + "?alt=media");
 
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
         Fragment_animal_data fragmentAnimalData = new Fragment_animal_data();
         fragmentAnimalData.setArguments(bundle);
 
-        fragmentTransaction.replace(R.id.fragmentContainerView, fragmentAnimalData).commit();
+        Navigation.findNavController(view).navigate(R.id.action_fragmentHome_to_fragment_animal_data, bundle);
     }
 }
 

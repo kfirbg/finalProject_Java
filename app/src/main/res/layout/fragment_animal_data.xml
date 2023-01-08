@@ -15,12 +15,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imageViewAnimalData"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
                 android:layout_margin="5dp"
                 tools:src="@tools:sample/avatars" />
 
@@ -33,12 +34,17 @@
                 android:textSize="30dp"
                 android:gravity="center"
                 android:text="TextView"
-                android:background="@drawable/design_animal_data"/>
+                />
         </LinearLayout>
 
         <TextView
+            android:scrollbars="vertical"
             android:id="@+id/textViewDataAnimalData"
             android:layout_width="match_parent"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
             android:layout_height="500dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
@@ -47,15 +53,6 @@
             android:text="TextView"
             android:textSize="20dp"
             />
-
-        <Button
-            android:id="@+id/returnHome"
-            android:layout_width="350sp"
-            android:layout_height="45dp"
-            android:layout_gravity="center"
-            android:text="return home page"
-            android:layout_marginBottom="15dp"
-            app:cornerRadius="10dp" />
     </LinearLayout>
 
 </FrameLayout>
