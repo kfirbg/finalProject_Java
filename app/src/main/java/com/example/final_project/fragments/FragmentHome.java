@@ -40,7 +40,6 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -65,6 +64,7 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
                 }
                 adapter = new myAdapter(recyclerView.getContext(), dataSet,FragmentHome.this);
                 recyclerView.setAdapter(adapter);
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

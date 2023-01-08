@@ -32,7 +32,6 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myHolder>{
 
     private Context context;
     private List<dataModel> fullDataSet;
-//    public FirebaseStorage mStorage;
     private  final recyclerViewInterface recyclerViewInterface;
 
 
@@ -92,4 +91,6 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myHolder>{
         public int getItemCount() {
             return  fullDataSet.size();
         }
+
+
 }

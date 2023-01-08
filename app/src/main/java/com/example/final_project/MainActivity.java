@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
         String name = animalName.getText().toString();
         String dataOnAnimal = animalData.getText().toString();
-//        String image = imageView.toString();
 
         storageRef = FirebaseStorage.getInstance().getReference("animals");
         myRef = FirebaseDatabase.getInstance().getReference("animals");
@@ -76,5 +75,9 @@ public class MainActivity extends AppCompatActivity {
         ContentResolver cR =getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cR.getType(uri));
+    }
+
+    public void finishActivity (int requestCode){
+
     }
 }

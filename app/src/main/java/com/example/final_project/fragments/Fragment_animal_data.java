@@ -50,7 +50,7 @@ public class Fragment_animal_data extends Fragment {
         returnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_fragment_animal_data_to_fragmentHome);
+                Navigation.findNavController(v).navigate(R.id.action_fragment_animal_data_to_fragmentHome);
             }
         });
 
