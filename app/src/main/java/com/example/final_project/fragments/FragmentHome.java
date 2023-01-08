@@ -58,10 +58,13 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
         databaseref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                dataSet.clear();
                 for (DataSnapshot postSnapeshot : snapshot.getChildren()){
                     dataModel dataMod = postSnapeshot.getValue(dataModel.class);
+
                     dataSet.add(dataMod);
                 }
+
                 adapter = new myAdapter(recyclerView.getContext(), dataSet,FragmentHome.this);
                 recyclerView.setAdapter(adapter);
 
