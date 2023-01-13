@@ -7,19 +7,22 @@
     tools:context=".fragments.Fragment_Create_animal" >
 
     <LinearLayout
+        android:background="#BAFFFFFF"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
-            android:layout_marginTop="15dp"
-            android:textColor="#595858"
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="New Animal"
-            android:textSize="40dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:layout_marginLeft="7dp"
+            android:text="Here you can create a new animal.
+                          You must fill in the details and then click the create button."
+            android:textSize="20dp"
             android:layout_marginBottom="10sp"/>
 
         <LinearLayout
@@ -31,26 +34,33 @@
             android:orientation="vertical">
 
             <EditText
+                android:paddingLeft="5dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
                 android:id="@+id/editTextTextPersonName"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_weight="0."
-                android:backgroundTint="#595858"
                 android:ems="10"
+                android:textColorHint="@color/black"
                 android:hint="Enter name"
                 android:layout_marginBottom="10sp"/>
 
             <EditText
+                android:paddingLeft="5dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:id="@+id/editTextTextPersonData"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_weight="0"
-                android:backgroundTint="#595858"
                 android:ems="10"
                 android:hint="Enter Data"
                 android:layout_marginBottom="10sp"/>
 
             <Button
+                android:backgroundTint="#E89637"
                 android:id="@+id/button2"
                 android:layout_width="300sp"
                 android:layout_height="45dp"
@@ -78,6 +88,7 @@
             </LinearLayout>
 
             <Button
+                android:backgroundTint="#E89637"
                 android:id="@+id/createButton"
                 android:layout_width="350sp"
                 android:layout_height="45dp"

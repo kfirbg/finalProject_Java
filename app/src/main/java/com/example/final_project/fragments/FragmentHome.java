@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_project.R;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,7 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
     private myAdapter adapter;
     private DatabaseReference databaseref;
     private List<dataModel> dataSet;
+    private Button  multipleLanguagesBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_home, container, false);
+
 
         recyclerView = view.findViewById(R.id.myRecyclerView);
         recyclerView.clearAnimation();
@@ -82,6 +85,19 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
                 Navigation.findNavController(view).navigate(R.id.action_fragmentHome_to_fragment_Create_animal);
             }
         });
+
+
+        multipleLanguagesBtn = view.findViewById(R.id.multipleLanguagesButton);
+        multipleLanguagesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Log.d("msg","kfir Mac");
+
+            }
+        });
+
+
+
         return  view;
     }
 
@@ -103,6 +119,8 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
 
         Navigation.findNavController(view).navigate(R.id.action_fragmentHome_to_fragment_animal_data, bundle);
     }
+
+
 }
 
 
