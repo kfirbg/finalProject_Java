@@ -32,7 +32,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
                 android:backgroundTint="#E89637"
-                android:text="English/Hebrew"
+                android:text="toggle Eng-Heb"
                 app:cornerRadius="10dp" />
 
 

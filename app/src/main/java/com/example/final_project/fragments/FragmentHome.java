@@ -19,14 +19,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
+import com.example.final_project.adapter.StartAdapter;
 import com.example.final_project.adapter.myAdapter;
 import com.example.final_project.models.dataModel;
 import com.example.final_project.recyclerViewInterface;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.mlkit.common.model.DownloadConditions;
+import com.google.mlkit.nl.translate.TranslateLanguage;
+import com.google.mlkit.nl.translate.Translation;
+import com.google.mlkit.nl.translate.Translator;
+import com.google.mlkit.nl.translate.TranslatorOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +52,10 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
     private ProgressBar progressBar;
     private Timer timer;
     private int count = 0;
+    Translator englishHebrewTranslator;
+    private StartAdapter startAdapter;
+
+    Translator Translator;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,14 +68,7 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_home, container, false);
 
-
-        recyclerView = view.findViewById(R.id.myRecyclerView);
-        recyclerView.clearAnimation();
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-
         dataSet = new ArrayList<>();
-
         databaseref = FirebaseDatabase.getInstance().getReference("animals");
         databaseref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -74,11 +79,9 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
 
                     dataSet.add(dataMod);
                 }
+                startAdapter=new StartAdapter();
+                startAdapter.startAdapterOnCall(view,dataSet,FragmentHome.this);
 
-                adapter = new myAdapter(recyclerView.getContext(), dataSet,FragmentHome.this);
-                recyclerView.setAdapter(adapter);
-
-                adapter.notifyDataSetChanged();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -98,13 +101,57 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
         multipleLanguagesBtn = view.findViewById(R.id.multipleLanguagesButton);
         multipleLanguagesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
 
+            public void onClick(View v) {
+                TranslatorOptions options =
+                        new TranslatorOptions.Builder()
+                                .setSourceLanguage(TranslateLanguage.ENGLISH)
+                                .setTargetLanguage(TranslateLanguage.HEBREW)
+                                .build();
+                englishHebrewTranslator = Translation.getClient(options);
+
+                englishHebrewTranslator.downloadModelIfNeeded().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                        for (int i=0; i<dataSet.size();i++ ){
+                            int finalI = i;
+
+                            englishHebrewTranslator.translate(dataSet.get(i).getName().toString()).addOnSuccessListener(new OnSuccessListener<String>() {
+                                @Override
+                                public void onSuccess(String s) {
+                                    startAdapter=new StartAdapter();
+                                    dataSet.get(finalI).setName(s.toString());
+
+                                }
+                            });
+                            englishHebrewTranslator.translate(dataSet.get(i).getDataAnimal().toString()).addOnSuccessListener(new OnSuccessListener<String>() {
+                                @Override
+                                public void onSuccess(String s) {
+                                    startAdapter=new StartAdapter();
+                                    dataSet.get(finalI).setDataAnimal(s.toString());
+                                    startAdapter.startAdapterOnCall(view,dataSet,FragmentHome.this);
+
+                                }
+                            });
+
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                });
             }
         });
 
         return  view;
     }
+    void  fun(){
+
+    }
+
 
 
     public void onItemClick(int pos, View view) {
