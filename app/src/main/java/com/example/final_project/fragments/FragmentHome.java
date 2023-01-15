@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.example.final_project.adapter.myAdapter;
 import com.example.final_project.models.dataModel;
@@ -29,6 +30,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class FragmentHome extends Fragment implements recyclerViewInterface{
@@ -38,10 +41,14 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
     private DatabaseReference databaseref;
     private List<dataModel> dataSet;
     private Button  multipleLanguagesBtn;
+    private ProgressBar progressBar;
+    private Timer timer;
+    private int count = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -71,6 +78,7 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
                 adapter = new myAdapter(recyclerView.getContext(), dataSet,FragmentHome.this);
                 recyclerView.setAdapter(adapter);
 
+                adapter.notifyDataSetChanged();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -91,12 +99,9 @@ public class FragmentHome extends Fragment implements recyclerViewInterface{
         multipleLanguagesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Log.d("msg","kfir Mac");
 
             }
         });
-
-
 
         return  view;
     }

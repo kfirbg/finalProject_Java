@@ -13,20 +13,29 @@
         android:orientation="vertical">
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textColor="@color/black"
+            android:text="Create new animal"
+            android:layout_weight="0"
+            android:gravity="center"
+
+            android:textSize="40dp"/>
+
+        <TextView
+            android:layout_marginTop="15dp"
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:layout_marginTop="15dp"
             android:gravity="left"
             android:layout_marginLeft="7dp"
             android:text="Here you can create a new animal.
                           You must fill in the details and then click the create button."
             android:textSize="20dp"
-            android:layout_marginBottom="10sp"/>
+            />
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -44,7 +53,7 @@
                 android:ems="10"
                 android:textColorHint="@color/black"
                 android:hint="Enter name"
-                android:layout_marginBottom="10sp"/>
+                />
 
             <EditText
                 android:paddingLeft="5dp"
@@ -57,7 +66,7 @@
                 android:layout_weight="0"
                 android:ems="10"
                 android:hint="Enter Data"
-                android:layout_marginBottom="10sp"/>
+                />
 
             <Button
                 android:backgroundTint="#E89637"
@@ -65,8 +74,6 @@
                 android:layout_width="300sp"
                 android:layout_height="45dp"
                 android:layout_weight="0"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
                 android:layout_gravity="center"
                 android:text="upload image"
                 app:cornerRadius="10dp" />
@@ -80,8 +87,8 @@
 
                 <ImageView
                     android:id="@+id/createImageView"
-                    android:layout_width="500dp"
-                    android:layout_height="500dp"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
                     android:layout_weight="0.5"
                     tools:src="@tools:sample/avatars" />
 

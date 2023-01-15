@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".fragments.FragmentHome">
 
+<!--    <ProgressBar-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:id="@+id/progressBar"></ProgressBar>-->
+
     <LinearLayout
         android:background="#C4FFFFFF"
         android:layout_width="match_parent"
